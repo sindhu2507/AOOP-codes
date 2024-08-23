@@ -1,0 +1,12 @@
+package LoggingSystem4a;
+
+public class DebugHandler extends LogHandler{
+	@Override
+    public void handle(String message) {
+        if (message.startsWith("DEBUG:")) {
+            System.out.println("DebugHandler: " + message);
+        } else if (nextHandler != null) {
+            nextHandler.handle(message);
+        }
+    }
+}
